@@ -5,7 +5,8 @@ import random
 with open("fiveLetterWords.txt", "r") as f:
     file = f.readlines()
 
-letters = ['q', 't', 'o', 'f', 'h', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm']
+# Old way was brute force, now I'm going to iterate over only valid words
+letters = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'p', 'a', 's', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm']
 words = []
 
 # Just for converting strings
@@ -16,23 +17,7 @@ def convert(s):
     # separating words by str1
     return(str1.join(s))
 
-for a in range(2000):
-    word = []
-    for i in range(4):
-        if i == 2: 
-            word.append('o')
-        if i == 3: 
-            word.append('l\n')
-        else:
-            word.append(random.choice(letters))
-    words.append(convert(word))
-
-words = sorted(words)
-print(*words)
-
-#print(file)
-for x in words:
-    if x in file:
-        print("FOUND: " + x)
-
+for word in file:
+    if word.find('a') == 3 and word.find('u') == 1 and "i" not in word and "o" not in word and "d" not in word and "h" not in word and "n" not in word and "m" not in word:
+        print(word)
 
