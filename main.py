@@ -10,6 +10,13 @@
 # Stage 4: Have it fully autonomous and hooked up to online, guessing itself
 
 from wordleDict import validWords
-        
-print(*validWords)
-print("Possible words: ", len(validWords))
+
+possibleWords = []
+i = 0        
+for word in validWords:
+    if 'l' in word and word.find('o') == 1 and word.find('u') == 2 and 'a' not in word and 't' not in word and 'e' not in word and 'e' not in word and 'r' not in word:
+        possibleWords.append(word)
+        i+=1
+
+print(*sorted(possibleWords))
+print("Possible words: ", i)
